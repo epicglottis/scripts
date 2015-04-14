@@ -1,7 +1,21 @@
 #!/bin/sh
 
 echo "Installing tools and dependencies..."
-sudo apt-get install -qq vim tmux git rxvt-unicode-256color exuberant-ctags aptitude curl
+sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags aptitude curl netcat nmap htop glances
+
+echo "Installing Chrome"
+BITS="$(uname -m)"
+cd /tmp
+if [[ $BITS == *"64"* ]]
+then
+  echo "Downloading 64bit Chrome"
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+else
+  echo "Downloading 32bit Chrome"
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+fi
+sudo dpkg -i google-chrome*
+sudo apt-get -fy install
 
 echo "Removing local dotfiles..."
 cd
