@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# $ wget https://raw.githubusercontent.com/epicglottis/scripts/master/newinstall.sh > ~/scripts/newinstall.sh
-# $ chmod +x ~/scripts/newinstall.sh && ~/scripts.newinstall.sh
 echo "Installing tools and dependencies..."
 sudo apt-get install -qq vim tmux git rxvt-unicode-256color exuberant-ctags
 
