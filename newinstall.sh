@@ -5,6 +5,7 @@ sudo apt-get install -qq vim tmux git rxvt-unicode-256color exuberant-ctags
 echo "Removing local dotfiles..."
 cd
 rm .vimrc .tmux.conf .ps1 .bashrc .Xdefaults
+rm -rf .i3/ .irssi/ .vim/
 
 echo "Cloning dotfiles..."
 cd
