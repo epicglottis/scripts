@@ -18,7 +18,7 @@ sudo apt-get -fy install
 
 echo "Removing local dotfiles..."
 cd
-rm .vimrc .tmux.conf .ps1 .bashrc .Xdefaults
+rm .vimrc .tmux.conf .ps1 .bashrc .Xdefaults .i3status.conf
 rm -rf .i3/ .irssi/ .vim/
 
 echo "Cloning dotfiles..."
