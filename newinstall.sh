@@ -5,27 +5,32 @@ sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags a
 
 BITS="$(uname -m)"
 cd /tmp
-if [[ $BITS == *"64"* ]]
+if [ $(which google-chrome) ]
 then
-  echo "Installing 64bit Chrome"
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  echo "Chrome already installed"
 else
-  echo "Installing 32bit Chrome"
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+  if [[ $BITS == *"64"* ]]
+  then
+    echo "Installing 64bit Chrome"
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  else
+    echo "Installing 32bit Chrome"
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+  fi
 fi
 sudo dpkg -i google-chrome*
 sudo apt-get -fy install
 
 echo "Removing local dotfiles..."
 cd
-rm .vimrc .tmux.conf .ps1 .bashrc .Xdefaults .i3status.conf
-rm -rf .i3/ .irssi/ .vim/
+rm -f .vimrc .tmux.conf .ps1 .bashrc .Xdefaults .i3status.conf README.md colors.png
+rm -rf .i3/ .irssi/ .vim/ scripts/
 
 echo "Cloning dotfiles..."
 cd
 git init
 git remote add origin https://github.com/epicglottis/dotfiles.git
-git pull origin master
+git pull -q origin master
 rm -rf .git
 source ~/.bashrc
 
@@ -34,7 +39,7 @@ mkdir -p ~/scripts
 cd ~/scripts
 git init
 git remote add origin https://github.com/epicglottis/scripts.git
-git pull origin master
+git pull -q origin master
 rm -rf .git
 
 echo "Grabbing fonts..."
