@@ -49,6 +49,7 @@ wget --quiet "https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip"
 unzip -qo 1.017R.zip
 sudo cp source-code-pro-1.017R/OTF/*.otf /usr/local/share/fonts/
 wget --quiet "https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20for%20Powerline.ttf?raw=true"
+mv "Cousine for Powerline.ttf?raw=true" "Cousine for Powerline.ttf"
 sudo cp Cousine*.ttf /usr/local/share/fonts/
 fc-cache -f
 
