@@ -1,7 +1,14 @@
 #!/bin/sh
 
 echo "Installing tools and dependencies..."
-sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags aptitude curl netcat nmap htop glances
+# i3
+sudo echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/source.list
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+# chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update
+sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags aptitude curl netcat nmap htop glances google-chrome-stable xbacklight pavucontrol indicator-cpufreq feh nm-applet
 
 BITS="$(uname -m)"
 cd /tmp
