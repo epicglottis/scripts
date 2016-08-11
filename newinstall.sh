@@ -8,7 +8,7 @@ sudo apt-get --allow-unauthenticated install sur5r-keyring
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 sudo apt-get update
-sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags aptitude curl netcat nmap htop glances google-chrome-stable xbacklight pavucontrol indicator-cpufreq feh nm-applet golang mercurial
+sudo apt-get install -qq vim tmux git i3 rxvt-unicode-256color exuberant-ctags aptitude curl netcat nmap htop glances google-chrome-stable xbacklight pavucontrol indicator-cpufreq feh nm-applet golang mercurial compton
 
 echo "Removing local dotfiles..."
 cd
